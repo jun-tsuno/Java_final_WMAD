@@ -1,6 +1,7 @@
 package home;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -10,6 +11,8 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -22,22 +25,24 @@ import javafx.scene.layout.GridPane;
 
 public class HomeController implements Initializable {
 
+    DatePicker datePicker = new DatePicker(LocalDate.now());
+
     TextField editTask = new TextField();
-    TextField editDueDate = new TextField();
+    DatePicker editDueDate = new DatePicker();
     TextField editAssignees = new TextField();
-    TextField editPriority = new TextField();
-    TextField editStatus = new TextField();
+    ComboBox<String> editPriority = new ComboBox<String>();
+    ComboBox<String> editStatus = new ComboBox<String>();
 
     @FXML
     private TextField task;
     @FXML
-    private TextField dueDate;
+    private DatePicker dueDate;
     @FXML
     private TextField assignees;
     @FXML
-    private TextField priority;
+    private ComboBox<String> priority;
     @FXML
-    private TextField status;
+    private ComboBox<String> status;
 
     // task list tab
     @FXML
@@ -88,8 +93,15 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.homeModel = new HomeModel();
+        priority.getItems().addAll("A", "B", "C");
+        priority.getSelectionModel().select(0);
+        status.getItems().addAll("Not Started", "In Progress", "Completed", "In Review", "Cancelled" );
+        status.getSelectionModel().select(0);
         this.loadTaskLists();
         this.loadMembersList();
+
+        editPriority.getItems().addAll("A", "B", "C");
+        editStatus.getItems().addAll("Not Started", "In Progress", "Completed", "In Review", "Cancelled" );
 
         //disable delete / edit buttons
         updateBtn.setDisable(true);
@@ -136,12 +148,12 @@ public class HomeController implements Initializable {
     //add task
     @FXML
     private void addTask(ActionEvent event) {
-        if(this.task.getText().length() == 0 || this.dueDate.getText().length() == 0 || this.status.getText().length() == 0 || this.priority.getText().length() == 0 || this.assignees.getText().length() == 0) {
+        if(this.task.getText().length() == 0 || this.dueDate.getValue() == null || this.status.getValue() == null || this.priority.getValue() == null || this.assignees.getText().length() == 0) {
             a.setAlertType(AlertType.ERROR);
             a.setContentText("All fields are required");
             a.show();
         } else {
-            homeModel.addTask(this.task.getText(), this.dueDate.getText(), this.status.getText(), this.priority.getText(), this.assignees.getText());
+            homeModel.addTask(this.task.getText(), this.dueDate.getValue().toString(), this.status.getValue().toString(), this.priority.getValue().toString(), this.assignees.getText());
             this.loadTaskLists();
             this.clearFields(null);
         }
@@ -151,9 +163,9 @@ public class HomeController implements Initializable {
     @FXML
     private void clearFields(ActionEvent event) {
         this.task.setText("");
-        this.dueDate.setText("");
-        this.status.setText("");
-        this.priority.setText("");
+        this.dueDate.setValue(null);
+        this.status.getSelectionModel().select(0);
+        this.priority.getSelectionModel().select(0);
         this.assignees.setText("");
     }
 
@@ -165,12 +177,15 @@ public class HomeController implements Initializable {
 
         dialog.showAndWait().ifPresent(response -> {
             if(response.getButtonData().equals(ButtonData.OK_DONE)) {
-                if(editTask.getText().length() == 0 || editDueDate.getText().length() == 0 || editStatus.getText().length() == 0 || editPriority.getText().length() == 0 || editAssignees.getText().length() == 0) {
+                if(editTask.getText().length() == 0 || editDueDate.getValue() == null || editStatus.getValue() == null || editPriority.getValue() == null || editAssignees.getText().length() == 0) {
                     a.setAlertType(AlertType.ERROR);
                     a.setContentText("All fields are required");
                     a.show();
                 } else {
-                    homeModel.editTask(editIdString, editTask.getText(), editDueDate.getText(), editStatus.getText(), editPriority.getText(), editAssignees.getText());
+                    homeModel.editTask(editIdString, editTask.getText(), editDueDate.getValue().toString(), editStatus.getValue().toString(), editPriority.getValue().toString(), editAssignees.getText());
+                    editDueDate.setValue(null);
+                    editStatus.setValue(null);
+                    editPriority.setValue(null);
                     this.loadTaskLists();
                 }
             }
@@ -208,6 +223,7 @@ public class HomeController implements Initializable {
         dialog = new Dialog<ButtonType>();
 
         dialog.setTitle("Edit an Task");
+
         ButtonType editModalBtn = new ButtonType("Edit", ButtonData.OK_DONE);
         ButtonType cancelModalBtn = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
 
@@ -218,9 +234,9 @@ public class HomeController implements Initializable {
         gridPane.setPadding(new Insets(20, 10, 10, 10));
 
         editTask.setText(editTaskString);
-        editDueDate.setText(editDueDateString);
-        editStatus.setText(editStatusString);
-        editPriority.setText(editPriorityString);
+        editDueDate.setPromptText(editDueDateString);
+        editStatus.setPromptText(editStatusString);
+        editPriority.setPromptText(editPriorityString);
         editAssignees.setText(editAssigneesString);
 
         gridPane.add(new Label("Task"), 0, 0);

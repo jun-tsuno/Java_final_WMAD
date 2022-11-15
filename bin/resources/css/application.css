@@ -1,8 +1,25 @@
-#anchorPane {
+#imageAnchor {
 	-fx-background-image: url("../images/back.png");
+}
+
+#anchorPane {
+	-fx-background-color: white;
 }
 
 #login,
 #register {
 	-fx-background-color: rgba(137, 137, 150, 0.427);
+	-fx-background-repeat: NO_REPEAT;
+}
+
+#addBtn {
+	-fx-background-color: rgba(8, 250, 65, 0.731);
+}
+
+#updateBtn {
+	-fx-background-color: rgba(240, 240, 25, 0.731);
+}
+
+#deleteBtn {
+	-fx-background-color: rgba(240, 34, 34, 0.731);
 }

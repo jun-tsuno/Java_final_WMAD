@@ -18,6 +18,7 @@ public class LoginController implements Initializable {
 
     LoginModel loginModel = new LoginModel();
 
+
     @FXML
     private Label dbStatus;
     @FXML
@@ -28,6 +29,7 @@ public class LoginController implements Initializable {
     private Button loginBtn;
     @FXML
     private Label loginStatus;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -53,7 +53,6 @@ public class HomeModel {
 
     // connection to members list
     public ObservableList<MembersLists> getMembersList() {
-        System.out.println("heyyyyyyyyy");
         String query = "SELECT * FROM login_tbl";
 
         try {
