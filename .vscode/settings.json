@@ -1,0 +1,16 @@
+{
+	"java.project.sourcePaths": ["src"],
+	"java.project.outputPath": "bin",
+	"java.project.referencedLibraries": [
+		"lib/**/*.jar",
+		"/Users/tsunokawajun/java/javafx-sdk-19/lib/javafx-swt.jar",
+		"/Users/tsunokawajun/java/javafx-sdk-19/lib/javafx.base.jar",
+		"/Users/tsunokawajun/java/javafx-sdk-19/lib/javafx.controls.jar",
+		"/Users/tsunokawajun/java/javafx-sdk-19/lib/javafx.fxml.jar",
+		"/Users/tsunokawajun/java/javafx-sdk-19/lib/javafx.graphics.jar",
+		"/Users/tsunokawajun/java/javafx-sdk-19/lib/javafx.media.jar",
+		"/Users/tsunokawajun/java/javafx-sdk-19/lib/javafx.swing.jar",
+		"/Users/tsunokawajun/java/javafx-sdk-19/lib/javafx.web.jar",
+		"/Users/tsunokawajun/java/postgresql-42.5.0 (1).jar"
+	]
+}

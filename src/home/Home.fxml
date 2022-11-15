@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.HomeController">
+   <children>
+      <TabPane layoutX="1.0" prefHeight="727.0" prefWidth="1287.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Task List">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="826.0" prefWidth="1287.0">
+                     <children>
+                        <HBox layoutX="-3.0" layoutY="184.0" prefHeight="505.0" prefWidth="1279.0">
+                           <children>
+                              <TableView fx:id="taskListsTableView" prefHeight="478.0" prefWidth="1279.0">
+                                <columns>
+                                  <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
+                                  <TableColumn fx:id="taskColumn" prefWidth="442.69840240478516" text="Task" />
+                                    <TableColumn fx:id="dueDateColumn" prefWidth="150.0" text="Due Date" />
+                                    <TableColumn fx:id="statusColumn" prefWidth="150.0" text="Status" />
+                                    <TableColumn fx:id="priorityColumn" prefWidth="150.0" text="Priority" />
+                                    <TableColumn fx:id="assigneesColumn" prefWidth="280.174072265625" text="Assignees" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </HBox>
+                        <TextField fx:id="task" layoutX="38.0" layoutY="26.0" prefHeight="40.0" prefWidth="417.0" promptText="Task" />
+                        <TextField fx:id="dueDate" layoutX="487.0" layoutY="27.0" prefHeight="40.0" prefWidth="129.0" promptText="Due Date" />
+                        <TextField fx:id="assignees" layoutX="972.0" layoutY="24.0" prefHeight="40.0" prefWidth="257.0" promptText="Assignees" />
+                        <TextField fx:id="priority" layoutX="647.0" layoutY="27.0" prefHeight="40.0" prefWidth="68.0" promptText="Priority" />
+                        <TextField fx:id="status" layoutX="759.0" layoutY="24.0" prefHeight="40.0" promptText="Status" />
+                        <Button fx:id="addBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="318.0" layoutY="100.0" mnemonicParsing="false" onAction="#addTask" prefHeight="40.0" prefWidth="131.0" text="ADD" />
+                        <Button fx:id="updateBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="476.0" layoutY="97.0" mnemonicParsing="false" onAction="#editTask" prefHeight="40.0" prefWidth="131.0" text="UPDATE" />
+                        <Button fx:id="deleteBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="636.0" layoutY="98.0" mnemonicParsing="false" onAction="#deleteTask" prefHeight="40.0" prefWidth="131.0" text="DELETE" />
+                        <Button fx:id="clearBtn" alignment="CENTER" contentDisplay="CENTER" layoutX="794.0" layoutY="96.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="40.0" prefWidth="131.0" text="CLEAR" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Team members">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox layoutX="-3.0" layoutY="152.0" prefHeight="540.0" prefWidth="1284.0">
+                           <children>
+                              <TableView fx:id="membersTableView" prefHeight="530.0" prefWidth="1283.0">
+                                <columns>
+                                  <TableColumn fx:id="memberIdColumn" prefWidth="92.50377631187439" text="ID" />
+                                  <TableColumn fx:id="memberNameColumn" prefWidth="428.27001953125" text="Team member" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </HBox>
+                        <Text layoutX="105.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="!! Add members on the SignUp form !!">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
