@@ -2,13 +2,21 @@
 	-fx-background-image: url("../images/back.png");
 }
 
-#anchorPane {
+#loginAnchorPane {
 	-fx-background-color: white;
 }
 
 #login,
 #register {
-	-fx-background-color: rgba(137, 137, 150, 0.427);
+	-fx-background-color: rgba(118, 118, 133, 0.433);
+}
+
+#signupPane {
+	-fx-background-image: url("../images/signup.png");
+}
+
+#signupTitle {
+	-fx-background-color: rgba(255, 255, 255, 0.5);
 }
 
 #addBtn {

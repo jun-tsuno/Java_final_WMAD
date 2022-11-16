@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="anPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="690.0" stylesheets="@../resources/css/application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="signup.SignUpController">
+<AnchorPane id="signupPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="690.0" stylesheets="@../resources/css/application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="signup.SignUpController">
     <children>
         <Pane id="register" layoutX="89.0" layoutY="42.0" prefHeight="308.0" prefWidth="512.0" stylesheets="@../resources/css/application.css">
             <children>
@@ -17,8 +17,8 @@
                 <PasswordField fx:id="password" layoutX="111.0" layoutY="114.0" prefHeight="40.0" prefWidth="290.0" promptText="Password" />
                 <PasswordField fx:id="confirmPassword" layoutX="111.0" layoutY="163.0" prefHeight="40.0" prefWidth="290.0" promptText="Confirm Password" />
 
-                <Button fx:id="signUpBtn" layoutX="111.0" layoutY="227.0" mnemonicParsing="false" onAction="#SignUp" prefHeight="40.0" prefWidth="290.0" text="SIGN UP" />
-                <Label layoutX="216.0" layoutY="21.0" text="Register">
+                <Button fx:id="signUpBtn" layoutX="111.0" layoutY="227.0" mnemonicParsing="false" onAction="#SignUp" prefHeight="40.0" prefWidth="290.0" text="Add Member" />
+                <Label fx:id="signupTitle" layoutX="164.0" layoutY="21.0" text="Add a New Member">
                 <font>
                     <Font name="SansSerif Bold" size="20.0" />
                 </font>

@@ -10,27 +10,35 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="690.0" stylesheets="@../resources/css/application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.LoginController">
+<AnchorPane id="loginAnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="690.0" stylesheets="@../resources/css/application.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.LoginController">
    <children>
       <Pane id="login" layoutX="24.0" layoutY="23.0" prefHeight="384.0" prefWidth="275.0" stylesheets="@../resources/css/application.css">
          <children>
-            <Button fx:id="loginBtn" layoutX="107.0" layoutY="252.0" mnemonicParsing="false" onAction="#Login" text="SIGN IN" />
-            <TextField fx:id="username" layoutX="43.0" layoutY="119.0" prefHeight="26.0" prefWidth="188.0" />
-            <Label layoutX="116.0" layoutY="70.0" text="Login">
+            <Button fx:id="loginBtn" layoutX="105.0" layoutY="270.0" mnemonicParsing="false" onAction="#Login" text="SIGN IN" />
+            <TextField fx:id="username" layoutX="44.0" layoutY="136.0" prefHeight="26.0" prefWidth="188.0" />
+            <Label layoutX="109.0" layoutY="58.0" text="Login">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="loginStatus" layoutX="44.0" layoutY="223.0" text="Login Status" />
-            <PasswordField fx:id="password" layoutX="44.0" layoutY="167.0" prefHeight="26.0" prefWidth="188.0" />
-            <Hyperlink layoutX="116.0" layoutY="320.0" onAction="#signUpPage" text="Register" />
-            <Label layoutX="66.0" layoutY="303.0" text="Add a new team member ?" textFill="WHITE" />
+            <Label fx:id="loginStatus" layoutX="29.0" layoutY="242.0" text="Login Status" />
+            <PasswordField fx:id="password" layoutX="45.0" layoutY="198.0" prefHeight="26.0" prefWidth="188.0" />
+            <Hyperlink layoutX="116.0" layoutY="336.0" onAction="#signUpPage" text="Register">
+               <font>
+                  <Font size="14.0" />
+               </font></Hyperlink>
+            <Label layoutX="55.0" layoutY="313.0" text="Add a new team member ?" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
             <Label layoutX="23.0" layoutY="15.0" text="DB Status:" textFill="WHITE">
                <font>
                   <Font name="SansSerif Bold" size="13.0" />
                </font>
             </Label>
             <Label fx:id="dbStatus" layoutX="106.0" layoutY="15.0" prefHeight="17.0" prefWidth="147.0" textFill="WHITE" />
+            <Label layoutX="52.0" layoutY="114.0" text="User Name" />
+            <Label layoutX="53.0" layoutY="177.0" text="Password" />
          </children>
       </Pane>
       <AnchorPane fx:id="imageAnchor" layoutX="301.0" layoutY="96.0" prefHeight="327.0" prefWidth="385.0" stylesheets="@../resources/css/application.css" />
