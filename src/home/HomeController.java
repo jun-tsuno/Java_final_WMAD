@@ -1,13 +1,16 @@
 package home;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -22,6 +25,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 public class HomeController implements Initializable {
 
@@ -68,6 +72,8 @@ public class HomeController implements Initializable {
     private Button deleteBtn;
     @FXML
     private Button clearBtn;
+    @FXML
+    private Button logOutBtn;
 
     // member list tab
     @FXML
@@ -218,6 +224,10 @@ public class HomeController implements Initializable {
         });
     }
 
+    public void logOut(ActionEvent event) {
+        loginPage();
+    }
+
     // create a modal
     private void createModal() {
         dialog = new Dialog<ButtonType>();
@@ -254,5 +264,25 @@ public class HomeController implements Initializable {
 
         dialog.getDialogPane().getButtonTypes().add(editModalBtn);
         dialog.getDialogPane().getButtonTypes().add(cancelModalBtn);
+    }
+
+    @FXML
+    public void loginPage(){
+
+        Stage stage = (Stage) this.logOutBtn.getScene().getWindow();
+        stage.close();
+
+        Stage loginStage = new Stage();
+        try {
+            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/login/Login.fxml")));
+
+            loginStage.setScene(scene);
+            loginStage.setTitle("Login Page");
+            loginStage.setResizable(false);
+            loginStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

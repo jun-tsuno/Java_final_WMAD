@@ -9,17 +9,32 @@
 #login,
 #register {
 	-fx-background-color: rgba(137, 137, 150, 0.427);
-	-fx-background-repeat: NO_REPEAT;
 }
 
 #addBtn {
 	-fx-background-color: rgba(8, 250, 65, 0.731);
+	-fx-border-color: rgba(5, 214, 54, 0.731);
+	-fx-border-width: 2;
+	-fx-border-radius: 2;
 }
 
 #updateBtn {
 	-fx-background-color: rgba(240, 240, 25, 0.731);
+	-fx-border-color: rgba(215, 215, 15, 0.731);
+	-fx-border-width: 2;
+	-fx-border-radius: 2;
 }
 
 #deleteBtn {
 	-fx-background-color: rgba(240, 34, 34, 0.731);
+	-fx-border-color: rgba(226, 26, 26, 0.731);
+	-fx-border-width: 2;
+	-fx-border-radius: 2;
+}
+
+#logOutBtn {
+	-fx-background-color: transparent;
+	-fx-border-color: gray;
+	-fx-border-width: 3;
+	-fx-border-radius: 2;
 }

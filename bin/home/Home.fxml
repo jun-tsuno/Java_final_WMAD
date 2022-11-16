@@ -19,7 +19,7 @@
         <tabs>
           <Tab text="Task List">
             <content>
-              <AnchorPane fx:id="taskListTab" minHeight="0.0" minWidth="0.0" prefHeight="826.0" prefWidth="1287.0" stylesheets="@../resources/css/application.css">
+              <AnchorPane fx:id="taskListTab" focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="826.0" prefWidth="1287.0" stylesheets="@../resources/css/application.css">
                      <children>
                         <HBox layoutX="-3.0" layoutY="215.0" prefHeight="474.0" prefWidth="1279.0">
                            <children>
@@ -69,6 +69,7 @@
                               <Font size="18.0" />
                            </font>
                         </Text>
+                        <Button fx:id="logOutBtn" layoutX="1163.0" layoutY="126.0" mnemonicParsing="false" onAction="#logOut" pickOnBounds="false" prefHeight="55.0" stylesheets="@../resources/css/application.css" text="Log Out" />
                      </children>
                   </AnchorPane>
             </content>
