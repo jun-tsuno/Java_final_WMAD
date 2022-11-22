@@ -74,6 +74,10 @@ public class HomeController implements Initializable {
     private Button clearBtn;
     @FXML
     private Button logOutBtn;
+    @FXML
+    private Button deleteMemberBtn;
+
+
 
     // member list tab
     @FXML
@@ -198,7 +202,7 @@ public class HomeController implements Initializable {
         });
     }
 
-    //delete employee
+    //delete task
     @FXML
     private void deleteTask(ActionEvent event) {
         TaskLists selectedItem = taskListsTableView.getSelectionModel().getSelectedItem();
@@ -220,6 +224,31 @@ public class HomeController implements Initializable {
                 taskListsTableView.getItems().remove(selectedItem);
                 //delete from DB
                 homeModel.deleteTask(selectedItem.idProperty().getValue());
+            }
+        });
+    }
+
+    // Delete a member
+    public void deleteMember(ActionEvent event) {
+        MembersLists selectedItem = membersTableView.getSelectionModel().getSelectedItem();
+
+        // delete confirmation
+        dialog = new Dialog<ButtonType>();
+        dialog.setTitle("Confirmation");
+        ButtonType deleteModalBtn = new ButtonType("Remove", ButtonData.OK_DONE);
+        ButtonType cancelModalBtn = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
+
+        dialog.setContentText("Do you really want to remove this member form the Data Base?\n" + "This process cannot be undone.");
+
+        dialog.getDialogPane().getButtonTypes().add(deleteModalBtn);
+        dialog.getDialogPane().getButtonTypes().add(cancelModalBtn);
+
+        dialog.showAndWait().ifPresent(response -> {
+            if(response.getButtonData().equals(ButtonData.OK_DONE)) {
+                //locally remove
+                membersTableView.getItems().remove(selectedItem);
+                //delete from DB
+                homeModel.deleteMember(selectedItem.idProperty().getValue());
             }
         });
     }

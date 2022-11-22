@@ -33,7 +33,8 @@
 	-fx-border-radius: 2;
 }
 
-#deleteBtn {
+#deleteBtn,
+#deleteMemberBtn {
 	-fx-background-color: rgba(240, 34, 34, 0.731);
 	-fx-border-color: rgba(226, 26, 26, 0.731);
 	-fx-border-width: 2;

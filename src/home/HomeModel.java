@@ -153,4 +153,31 @@ public class HomeModel {
             }
         }
     }
+
+    /**
+     * @param id
+     */
+    public void deleteMember(String id) {
+
+        String sql = "DELETE FROM login_tbl WHERE id = ?";
+        PreparedStatement statement = null;
+
+        try {
+            Connection conn = dbConnection.getConnection();
+            statement = conn.prepareStatement(sql);
+
+            statement.setInt(1, Integer.parseInt(id));
+
+            statement.execute();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                statement.close();
+            } catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
+    }
 }
